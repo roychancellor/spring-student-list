@@ -1,0 +1,26 @@
+body {
+	background-color:#000;
+	font-family:arial;
+}
+#page {
+	border:2px solid #fff;
+	width:550px;
+	margin:auto;
+	padding:10px;
+}
+section {
+	background-color:#fff;
+	padding:10px;
+}
+
+a {
+	margin-right:10px;
+	margin-left:10px;
+	border:2px outset;
+	padding:2px;
+}
+tr th {
+	margin-right:20px;
+	margin-left:20px;
+}
+
