@@ -103,19 +103,19 @@ public class LoginController {
 		@RequestParam String firstname,
 		@ModelAttribute("username") String username,
 		ModelMap map, HttpSession s) {
-		if(username.contentEquals("admin")) {
+		String jspToReturn = "login";
+		
+		if(username.equals("admin")) {
 			StudentService.addStudentToRoster(lastname, firstname, false, username);
 			//Redirect to the student list page for admin
-			return "redirect:studentlist";
+			jspToReturn = "redirect:studentlist";
 		}
 		else if(map.get("username").equals("faculty")) {
 			//Redirect to the student list page for faculty
-			return "redirect:studentlist";
+			jspToReturn = "redirect:studentlist";
 		}
-		else {
-			//Open the login.jsp file
-			return "login";
-		}
+		
+		return jspToReturn;
 	}
 	
 	private static final int ENROLL = 1;
@@ -129,18 +129,6 @@ public class LoginController {
 	@RequestMapping(value="/enroll", method=RequestMethod.GET)
 	public String processEnrollStudent(@RequestParam int id, ModelMap map) {
 		return processEnrollDelete((String)map.get("username"), id, ENROLL);
-//		String jspToReturn = "login";
-//		if(map.get("username").equals("admin")) {
-//			StudentService.enrollStudent(id);
-//			//Redirect to the student list page for admin
-//			jspToReturn = "redirect:studentlist";
-//		}
-//		else if(map.get("username").equals("faculty")) {
-//			//Redirect to the student list page for faculty
-//			jspToReturn = "redirect:studentlist";
-//		}
-//		
-//		return jspToReturn;
 	}
 
 	/**

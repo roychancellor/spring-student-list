@@ -18,7 +18,7 @@
 		<section>
 			<h1>Student List (${username})</h1>
 			<table>
-				<tr><th>ID---</th><th>Last Name---</th><th>First Name---</th><th>Enrolled?</th></tr>
+				<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Enrolled?</th></tr>
 				<!-- MUST BE CALLED items -->
 				<format:forEach items="${stulist}" var="student">
 					<tr>
